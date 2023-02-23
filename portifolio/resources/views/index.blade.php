@@ -11,16 +11,5 @@
 <x-system.contact/>
 <x-system.testimonial/>
 <x-system.footer/>
-    
-    
-        
-        
-       
-       
-     
-    
-        
-    
-      
-    
+  
 @endsection
