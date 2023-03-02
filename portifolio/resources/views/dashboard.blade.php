@@ -3,14 +3,9 @@
 @section('content')
 
 <x-dashboard.navbar/>
-@php
-$x="list";
-@endphp
 
-@if($x == "teste")
-  <p>rodou</p>
-@elseif($x == "list")
-    <x-dashboard.liste/>
+@if($x == "list")
+    <x-dashboard.liste :result="$list" :service="$type"/>
 @else
 @endif
 

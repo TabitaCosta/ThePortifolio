@@ -1,22 +1,19 @@
 <?php
 
-namespace App\View\Components\dashboard;
+namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Liste extends Component
+class service-modal extends Component
 {
     /**
      * Create a new component instance.
      */
-    public $result;
-    public $service;
-    public function __construct($result,$service)
+    public function __construct()
     {
-        $this->result = $result;
-        $this->service = $service;
+        //
     }
 
     /**
@@ -24,6 +21,6 @@ class Liste extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.dashboard.liste');
+        return view('components.service-modal');
     }
 }

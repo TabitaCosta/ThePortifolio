@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboard',["x"=>'']);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -31,9 +32,19 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::post('/add/about', [AboutController::class, 'create'])->middleware(['auth', 'verified']);
+Route::post('/add/about',[AboutController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/about',[AboutController::class, 'getAboutAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/about',[AboutController::class, 'getAbout'])->middleware(['auth', 'verified']);
+Route::post('/update/about',[AboutController::class, 'updateAbout'])->middleware(['auth', 'verified']);
+Route::post('/deletar/about',[AboutController::class, 'deleteAbout'])->middleware(['auth', 'verified']);
+Route::post('/serach/about',[AboutController::class, 'searchAbout'])->middleware(['auth', 'verified']);
 
-
+Route::post('/add/service',[ServiceController::class, 'createService'])->middleware(['auth', 'verified']);
+Route::get('/list/service',[ServiceController::class, 'getServiceAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/service',[ServiceController::class, 'getService'])->middleware(['auth', 'verified']);
+Route::post('/update/service',[ServiceController::class, 'updateService'])->middleware(['auth', 'verified']);
+Route::post('/deletar/service',[ServiceController::class, 'deleteService'])->middleware(['auth', 'verified']);
+Route::post('/search/service',[ServiceController::class, 'searchService'])->middleware(['auth', 'verified']);
 
 
 require __DIR__.'/auth.php';

@@ -22,22 +22,21 @@ class AboutController extends Controller
 
         $about= new About;
         $about->description = $request->description;
-        $about->patch=$nameStore;
+        $about->patch='senai/'. $nameStore;
         $about->save();
 
-        return view('dashboard',['msg'=>"Item cadstrado com sucesso!!"]);
+        return view('dashboard',['x'=>"",'msg'=>"Item cadstrado com sucesso!!"]);
     }
 
     public function getAboutAll()
     {
-       return About::all();     
+       return view('dashboard',['x'=>'list','type'=>'about','list'=>About::all()]);   
     }
 
     public function getAbout(Request $request)
     {
-        return About::find($request->id);
+        return view('edit-about',['list'=>About::find($request->id)]);
     }
-
     public function updateAbout(Request $request)
     {
         if ($request->hasfile('imagem')) {
@@ -47,26 +46,28 @@ class AboutController extends Controller
             $nameStore = $fileName."_". time() ."." . $extension;
             $path = $request->file('imagem')->storeAs('public/senai', $nameStore);
         }else {
-            $nameStore = $request->patch;
+            $nameStore=$request->patch;
         }
 
         $about = About::find($request->id);
-        $about->description = $request->$description;
-        $about->patch="";
+        $about->description = $request->description;
+        $about->patch=$nameStore;
         $about->save();
+        return $this->getAboutAll();
     }
-
     public function deleteAbout(Request $request)
     {
         $about = About::find($request->id);
         $about->delete();
+        return $this->getAboutAll();
     }
-
-    public function search(Request $request)
+    public function searchAbout(Request $request)
     {
         About::where('description','LIKE','%'.$request->search.'%')
         ->get();
+        return view('dashboard',['x'=>"list", 'type'=>'about','list'=>$db]);
     }
+    
 
 
 
