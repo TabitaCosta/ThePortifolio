@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\SignatureController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -46,5 +48,18 @@ Route::post('/update/service',[ServiceController::class, 'updateService'])->midd
 Route::post('/deletar/service',[ServiceController::class, 'deleteService'])->middleware(['auth', 'verified']);
 Route::post('/search/service',[ServiceController::class, 'searchService'])->middleware(['auth', 'verified']);
 
+Route::post('/add/portfolio',[PortfolioController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/portfolio',[PortfolioController::class, 'getPortfolioAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/portfolio',[PortfolioController::class, 'getPortfolio'])->middleware(['auth', 'verified']);
+Route::post('/update/portfolio',[PortfolioController::class, 'updatePortfolio'])->middleware(['auth', 'verified']);
+Route::post('/deletar/portfolio',[PortfolioController::class, 'deletePortfolio'])->middleware(['auth', 'verified']);
+Route::post('/search/portfolio',[PortfolioController::class, 'searchPortfolio'])->middleware(['auth', 'verified']);
+
+Route::post('/add/signature',[SignatureController::class, 'create'])->middleware(['auth', 'verified']);
+Route::get('/list/signature',[SignatureController::class, 'getSignatureAll'])->middleware(['auth', 'verified']);
+Route::post('/editar/signature',[SignatureController::class, 'getSignature'])->middleware(['auth', 'verified']);
+Route::post('/update/signature',[SignatureController::class, 'updateSignature'])->middleware(['auth', 'verified']);
+Route::post('/deletar/signature',[SignatureController::class, 'deleteSignature'])->middleware(['auth', 'verified']);
+Route::post('/search/signature',[SignatureController::class, 'searchSignature'])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

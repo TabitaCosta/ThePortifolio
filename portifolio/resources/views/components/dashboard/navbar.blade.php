@@ -34,7 +34,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalPortifolio">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/portfolio">LIST</a></li>
         </ul>
       </li>
       <li class="nav-item dropdown">
@@ -52,7 +52,7 @@
         </a>
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalSignature">ADD</a></li>
-          <li><a class="dropdown-item" href="#">LIST</a></li>
+          <li><a class="dropdown-item" href="/list/signature'">LIST</a></li>
         </ul>
       </li>
     </ul>

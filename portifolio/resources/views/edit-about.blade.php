@@ -27,7 +27,7 @@
                             <label class="custom-file-label" for="inputGroupFileAdd01">Choose File</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-succes">Editar</button>
+                    <button type="submit" class="btn btn-success">Editar</button>
                 </form>
             </div>
         </div>

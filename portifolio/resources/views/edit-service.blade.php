@@ -1,3 +1,11 @@
+@extends('layouts.layout')
+@section('title','Editar About')
+@section('content')
+
+<x-dashboard.navbar/>
+
+
+
 
 <div class="card w-75">
     <div class="row no-gutters">
@@ -21,7 +29,7 @@
                             <label class="custom-file-label" for="inputGroupFileAdd01">Choose File</label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-succes">Editar</button>
+                    <button type="submit" class="btn btn-success">Editar</button>
                 </form>
             </div>
         </div>

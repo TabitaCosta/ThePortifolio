@@ -35,7 +35,7 @@ class ServiceController extends Controller
 
     public function getService(Request $request)
     {
-        return view('editar/service',['list'=>Service::find($request->id)]);
+        return view('edit-service',['list'=>Service::find($request->id)]);
     }
 
     public function updateService(Request $request)
@@ -73,3 +73,4 @@ class ServiceController extends Controller
 
 
 }
+?>
